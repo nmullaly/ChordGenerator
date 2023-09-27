@@ -20,11 +20,7 @@ public class Chord {
 
     }
 
-    public String toString() {
-        return root + quality;
-    }
-
-    public Chord getRandomChord(boolean usesSharps) {
+    public Chord(boolean usesSharps) {
 
         int rootIndex;
         int qualityIndex;
@@ -50,8 +46,15 @@ public class Chord {
         rootIndex = (int)(Math.random() * noteNames.length);
         qualityIndex = (int)(Math.random() * qualities.length);
 
-        return new Chord(noteNames[rootIndex], qualities[qualityIndex]);
-        
+        this.root = noteNames[rootIndex];
+        this.quality = qualities[qualityIndex];
+
     }
+
+    public String toString() {
+        return root + quality;
+    }
+
+
 
 }
