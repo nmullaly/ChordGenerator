@@ -87,39 +87,7 @@ public class ChordGenerator {
             userInput = scanner.nextLine();
 
         }
-
-
-//        old version
-//        // Starting point, never prints
-//        noteNameIndex = (int)(Math.random() * noteNames.length);
-//
-//        while (!userInput.equals("q")) {
-//
-//            nextDistanceIndex = (int)(Math.random() * nextDistance.length);
-//            // For double checking
-//            // System.out.println("Next Distance: " + nextDistance[nextDistanceIndex]);
-//
-//            qualityIndex = (int)(Math.random() * qualities.length);
-//            noteNameIndex += nextDistance[nextDistanceIndex];
-//
-//            // This if statement should account for the index going out of bounds
-//            if (noteNameIndex >= noteNames.length) {
-//                noteNameIndex -= noteNames.length;
-//            } else if (noteNameIndex < 0) {
-//                noteNameIndex += noteNames.length;
-//            }
-//            // For double checking
-//            // System.out.println("NNI: " + noteNameIndex);
-//
-//            chordName = noteNames[noteNameIndex] + qualities[qualityIndex];
-//
-//
-//
-//            System.out.print(chordName + " ");
-//            userInput = scanner.nextLine();
-//
-//        }
-
+        
     }
 
     // prints the next chord, followed by 3 upcoming chords in parentheses
