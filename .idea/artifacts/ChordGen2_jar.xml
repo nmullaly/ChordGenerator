@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="ChordGen2:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/ChordGen2_jar</output-path>
-    <root id="archive" name="ChordGen2.jar">
-      <element id="module-output" name="ChordGen2" />
-    </root>
-  </artifact>
-</component>

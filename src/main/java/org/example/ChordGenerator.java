@@ -1,18 +1,25 @@
 package org.example;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class ChordGenerator {
     public static void main(String[] args) {
 
         /*
+        *
+        * For TE ppl: start the program by opening the jar folder in terminal and typing java -jar ChordGenerator.jar
+        * because for some reason this computer can't just open a jar :/
+        *
         * ChordGenerator v3 updates:
         * (1) Implemented the Chord class to take all that ugly code out of my main method
         * (2) Added method to generate/print 3 upcoming chords after the current one
         * (3) Added method to cycle the array forward and add a new one
         *   - chose not to use a queue because I wanted to reuse them and it felt like unnecessary added complexity
+        *
+        * ChordGenerator v4 updates:
+        * (1) Implemented Metronome class (thx rosetta code <3), with bpm and measure length set by user
+        * (2) Removed obsolete code
+        * (3) Removed input checking for sharps/flats because I don't know how to do it for numbers yet so it felt a little pointless
         *
         * TODO:
         *  - reimplement probability based progressions, add common patterns
@@ -22,26 +29,18 @@ public class ChordGenerator {
         *       - borrowed chords
         *  - Alter chord class to use 12-tone scale notation so it's transferable between keys
         *  - maybe : make a FourBars class and put the new v3 methods in there instead of main class?
-        *  - and finally, of course, METRONOME
-        *       - auto cycle chords
-        *       - change time signature
-        *       - change bpm
-        *       - notate beats as " * " on the same line
         */
 
 
         Scanner scanner = new Scanner(System.in);
 
-        // from older features
-//        int noteNameIndex;
-//        int qualityIndex;
-//        int nextDistanceIndex;
-//        String chordName;
-
+        double bpm;
+        int measureLength;
         boolean usesSharps = false;
         Chord[] nextFourChords = new Chord[4];
 
-        // This array allows for slightly more realistic movement between chords, while still allowing some curveballs
+        // I wrote the next 3 lines for v2 before I remembered that switch statements exist but I'm keeping them so I can remember the probability I decided on
+        // This array allows for slightly more realistic movement between chords, while still allowing some random movement
         // Multiples of certain numbers are to make that movement more likely
         // int[] nextDistance = new int[]{1, 1, 2, 2, 5, 5, 5, 5, 5, 7, 7, 7, -3, -3, -2, -2, -1, -1, 3, 4, 6, 8};
 
@@ -49,45 +48,31 @@ public class ChordGenerator {
         System.out.print("Excessive (s)harps or (f)lats? ");
         String keyChoice = scanner.nextLine();
 
-        boolean repeat = true;
-        while (repeat) {
+        System.out.print("BPM: ");
+        bpm = scanner.nextDouble();
 
-            if (keyChoice.equals("s")) {
+        System.out.print("Beats in a measure: ");
+        measureLength = scanner.nextInt();
 
-                usesSharps = true;
-                repeat = false;
-
-            } else if (keyChoice.equals("f")) {
-
-                usesSharps = false;
-                repeat = false;
-
-            } else {
-                System.out.print("Invalid input");
-            }
-
-        }
+        Metronome metronome = new Metronome(bpm, measureLength);
 
         // Starts the queue with 4 random chords
         for (int i = 0; i < 4; i++) {
             nextFourChords[i] = new Chord(usesSharps);
         }
 
-
-
-        System.out.print("Press enter to generate a chord, or enter q to quit. ");
+        System.out.println("The program will run automatically. Close the window to stop.");
+        System.out.println("Don't forget to have fun :^)");
         String userInput = scanner.nextLine();
 
-        while (!userInput.equals("q")) {
+        while (true) {
 
             System.out.println(printChords(nextFourChords));
+            metronome.countMeasure();
             nextFourChords = cycleChords(nextFourChords, usesSharps);
 
-            System.out.print("Press enter to continue, or enter q to quit. ");
-            userInput = scanner.nextLine();
-
         }
-        
+
     }
 
     // prints the next chord, followed by 3 upcoming chords in parentheses
