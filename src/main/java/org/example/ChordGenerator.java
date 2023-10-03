@@ -22,15 +22,19 @@ public class ChordGenerator {
         * (3) Removed input checking for sharps/flats because I don't know how to do it for numbers yet so it felt a little pointless
         *
         * TODO:
-        *  - reimplement probability based progressions, add common patterns
-        *       - maybe make this a new progression class?
-        *  - implement Key class to aid in logical-ish progressions
-        *       - key changes
-        *       - borrowed chords
+        *  - Reimplement probability based progressions, add common patterns
         *  - Alter chord class to use 12-tone scale notation so it's transferable between keys
-        *  - maybe : make a FourBars class and put the new v3 methods in there instead of main class?
-        *  - change fourChords to an ArrayList
+        *  - Make Map of 12-tone numbers to letter names
+        *       - 50/50 chance for C#/Db and F#/Gb
+        *  - change nextFourChords to an ArrayList
         *  - add a count off before chords print
+        *  - difficulty settings (common extensions, common/uncommon extensions, uncommon only)
+        *  Down the line:
+        *  - Key class for more tonal progressions
+        *  - Set # of measures, loop when done
+        *  Once I learn frontend:
+        *  - Start/stop button
+        *  - Edit fields for tempo / measure length
         */
 
 

@@ -44,10 +44,3 @@ class Metronome{
     }
 
 }
-
-//public class test {
-//    public static void main(String[] args) {
-//        Metronome metronome1 = new Metronome(120,4);
-//        metronome1.start();
-//    }
-//}
