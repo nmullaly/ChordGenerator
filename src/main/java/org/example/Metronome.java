@@ -2,10 +2,10 @@ package org.example;
 
 // based on code imported from rosettacode.org/wiki/Metronome
 class Metronome{
-    double bpm;
+    int bpm;
     int measureLength;
     int counter;
-    public Metronome(double bpm, int measure){
+    public Metronome(int bpm, int measure){
         this.bpm = bpm;
         this.measureLength = measure;
     }
