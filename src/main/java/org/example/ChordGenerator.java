@@ -30,6 +30,7 @@ public class ChordGenerator {
         *  - Alter chord class to use 12-tone scale notation so it's transferable between keys
         *  - maybe : make a FourBars class and put the new v3 methods in there instead of main class?
         *  - change fourChords to an ArrayList
+        *  - add a count off before chords print
         */
 
 
