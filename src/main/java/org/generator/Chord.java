@@ -1,4 +1,4 @@
-package org.example;
+package org.generator;
 
 public class Chord {
 

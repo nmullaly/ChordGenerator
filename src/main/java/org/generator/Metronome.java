@@ -1,4 +1,4 @@
-package org.example;
+package org.generator;
 
 // based on code imported from rosettacode.org/wiki/Metronome
 class Metronome{
